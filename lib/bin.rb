@@ -1,16 +1,48 @@
 class Bin
 	attr_reader :container, :length, :width, :height
 
+
 	def initialize(length, width, height)
 		@@container = []
 		@length = length
 		@width = width
 		@height = height
+	end
 
-		# (0..length).each do |length_index|
-		# 	(0..width).each do |width_index|
-		# 		(0..height).each do |height_index|
-		# 			@container << { :self => bin.new(length_index, width_index, height_index)}
+	def container
+		@@container
+	end
+
+	def new_container
+
+	end
+
+	def Bin.create(length, width, height)
+		this_bin = Bin.new(@length, @width, @height)
+		# this_bin.new_container
+		# this_bin.pack_container
+		this_bin
+	end
+
+	def volume
+		@length * @width * @height
+	end
+
+	def place_item
+		@@container << Cuboid.new(@dimensions, @id)
+		Bin.volume - Cuboid.volume
+	end
+
+	def pack_container(item)
+
+	end
+
+	def insert_cuboid
+
+	end
+
+	def space_remaining
+
 	end
 
 
