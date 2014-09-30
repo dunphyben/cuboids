@@ -1,6 +1,5 @@
 require 'rspec'
 require 'cuboid'
-require 'bin'
 
 describe Cuboid do
 	# it 'initializes a new instance of a Cuboid' do
@@ -8,23 +7,23 @@ describe Cuboid do
 	# 	new_cuboid.should be_an_instance_of Cuboid
 	# end
 
-	it 'is initialized with a hash of dimensions and an ID' do
-		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 }, 1)
+	it 'is initialized with a hash of dimensions' do
+		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 })
 		new_cuboid.should be_an_instance_of Cuboid
 	end
 
 	it 'identifies if the cuboid is a cube' do
-		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 }, 1)
+		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 })
 		expect(new_cuboid.cube?).to be_truthy
 	end
 
 	it 'identifies if the cuboid is rectangular' do
-		new_cuboid = Cuboid.new({ :length => 5, :width => 6, :height => 6 }, 1)
+		new_cuboid = Cuboid.new({ :length => 5, :width => 6, :height => 6 })
 		expect(new_cuboid.rectangular?).to be_truthy
 	end
 
 	it 'calculates the volume of the cuboid' do
-		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 }, 1)
+		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 })
 		new_cuboid.volume.should eq 125
 	end
 

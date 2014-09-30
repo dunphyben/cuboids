@@ -1,5 +1,4 @@
 require 'rspec'
-require 'cuboid'
 require 'bin'
 
 describe Bin do
@@ -13,12 +12,19 @@ describe Bin do
 		new_bin.volume.should eq 8000
 	end
 
-	describe '.create' do
-		it 'creates a new bin' do
-			new_bin = Bin.create(20, 20, 20)
-			new_bin.should be_an_instance_of Bin
-		end
+	it 'calculates remaining volume after cuboids have been packed' do 
+		new_bin = Bin.new(20, 20, 20)
+		new_cuboid = Cuboid.new({ length: 2, width: 2, height: 2}, id: 3)
+		Bin.place_item
+		Bin.space_left.should eq 7992
 	end
+
+	# describe '.create' do
+	# 	it 'creates a new bin' do
+	# 		new_bin = Bin.create(20, 20, 20)
+	# 		expect(new_bin).to be_an_instance_of Bin 
+	# 	end
+	# end
 
 	# describe '.container' do
 	# 	it 'is an array that holds the cuboids for an instance of bin' do

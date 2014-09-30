@@ -1,20 +1,11 @@
 class Cuboid
-	attr_accessor :id, :length, :width, :height, :container
+	attr_reader :length, :width, :height, :container
 
-	# def initialize(length, width, height)
-	# 	@length = length
-	# 	@width = width
-	# 	@height = height
-	# end
-
-
-
-	def initialize(dimensions, id)
-		@@container = []
+	def initialize(dimensions)
+		@container = []
 		@length = dimensions[:length]
 		@width = dimensions[:width]
 		@height = dimensions[:height]
-		@id = id
 	end
 
 	def cube?
@@ -27,18 +18,7 @@ class Cuboid
 
 	def volume
 		@length * @width * @height
-	end
-
-
-
-
-
-
-	# def Cuboid.create
-	# 	new_cuboid = Cuboid.new(dimensions)
-	# 	new_cuboid.save
-	# 	new_cuboid
-	# end
+	end	
 
 	# def save
 	# 	@@container << self
@@ -50,3 +30,7 @@ end
 # c = Cuboid.new(5, 3, 4)
 # puts c.cube?
 # puts c.rectangular?
+
+
+
+

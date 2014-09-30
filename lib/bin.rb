@@ -1,27 +1,13 @@
+require 'cuboid'
+
 class Bin
 	attr_reader :container, :length, :width, :height
 
-
 	def initialize(length, width, height)
-		@@container = []
+		@container = []
 		@length = length
 		@width = width
 		@height = height
-	end
-
-	def container
-		@@container
-	end
-
-	def new_container
-
-	end
-
-	def Bin.create(length, width, height)
-		this_bin = Bin.new(@length, @width, @height)
-		# this_bin.new_container
-		# this_bin.pack_container
-		this_bin
 	end
 
 	def volume
@@ -29,8 +15,8 @@ class Bin
 	end
 
 	def place_item
-		@@container << Cuboid.new(@dimensions, @id)
-		Bin.volume - Cuboid.volume
+		@container << Cuboid.new
+		space_left = Bin.volume - Cuboid.volume
 	end
 
 	def pack_container(item)
@@ -58,3 +44,4 @@ class Bin
 	# 	@@container.each do |cuboid|
 	# 		if cuboid.x ==
 end
+
