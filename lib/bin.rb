@@ -14,9 +14,16 @@ class Bin
 		@length * @width * @height
 	end
 
-	def place_item
-		@container << Cuboid.new
-		space_left = Bin.volume - Cuboid.volume
+	def place_item(cuboid)
+		@container << cuboid
+	end
+
+	def space_left		
+		total_volume = 0
+		@container.each do |cuboid|
+			total_volume += cuboid.volume
+		end
+		volume - total_volume
 	end
 
 	def pack_container(item)

@@ -14,9 +14,11 @@ describe Bin do
 
 	it 'calculates remaining volume after cuboids have been packed' do 
 		new_bin = Bin.new(20, 20, 20)
-		new_cuboid = Cuboid.new({ length: 2, width: 2, height: 2}, id: 3)
-		Bin.place_item
-		Bin.space_left.should eq 7992
+		new_cuboid = Cuboid.new({ length: 2, width: 2, height: 2})
+		new_cuboid2 = Cuboid.new({ length: 2, width: 2, height: 2})
+		new_bin.place_item(new_cuboid)
+		new_bin.place_item(new_cuboid2)
+		new_bin.space_left.should eq 7984
 	end
 
 	# describe '.create' do
@@ -35,16 +37,16 @@ describe Bin do
 # A container is an instance of bin. It holds the cuboids placed in the instance of bin.
 	describe '#container' do
 		it 'is an empty array at first' do
-			new_bin = Bin.create(20, 20, 20)
+			new_bin = Bin.new(20, 20, 20)
 			new_bin.container.length.should eq 0
 		end
 	end
 
 	describe '#place_item' do
 		it 'places a cuboid into the container array as an instance of bin' do
-			new_bin = Bin.create(20, 20, 20)
-	 		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 }, 1)
-	 		new_bin.place_item
+			new_bin = Bin.new(20, 20, 20)
+	 		new_cuboid = Cuboid.new({ :length => 5, :width => 5, :height => 5 })
+	 		new_bin.place_item(new_cuboid)
 	 		new_bin.container.length.should eq 1
 	 	end
 	 end

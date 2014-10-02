@@ -1,8 +1,7 @@
-class Cuboid
-	attr_reader :length, :width, :height, :container
+class Cuboid 
+	attr_reader :length, :width, :height
 
 	def initialize(dimensions)
-		@container = []
 		@length = dimensions[:length]
 		@width = dimensions[:width]
 		@height = dimensions[:height]
@@ -19,6 +18,10 @@ class Cuboid
 	def volume
 		@length * @width * @height
 	end	
+
+	def container_volume(cuboid)
+
+	end
 
 	# def save
 	# 	@@container << self
